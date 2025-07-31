@@ -14,8 +14,13 @@ setTimeout(() => {
     console.log("setTime called after 5 seconds");
 }, 5000);
 
+//Synchronous - This will block the main thread and this will be also moved to libuv. This is not recommended.
+const dataSync = fs.readFileSync("./file.txt", "utf8");
+console.log("File data sync : ", dataSync);
+
+//Asynchronous
 fs.readFile("./file.txt", "utf8", (err, data) => {
-    console.log("File Data : ", data);
+    console.log("File Data async : ", data);
 });
 
 function multiplyFn(x, y) {
