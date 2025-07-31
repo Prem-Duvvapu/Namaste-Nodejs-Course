@@ -21,3 +21,22 @@
     - module.exports
     - Common JS modules (cjs). Here we use module.exports, require(). By default used in Node JS. This is older way.
     - ES modules (mjs). Here we use import, export. By default used in React, Angular. This is newer way.
+
+5. ## Diving into the NodeJS github repo
+    - all the code of the module is wrapped inside a function().
+    - IIFE - Immediately invoked function expression.
+    - Nodejs passes module as a parameter to the IIFE.
+    - require("path"). 5 steps.
+    - 1. Resolving the module. (.localpath or .json or  node:module)
+    - 2. Loading the module. File content is loaded according to file type.
+    - 3. wraps inside IIFE. (Compile).
+    - 4. Code evaluation. module.exports happens.
+    - 5. caching. The code of require will ran only once.
+
+6. ## libuv && async IO
+    - Synchronous, Asynchronous
+    - libuv talks to OS onbehalf of JS engine(v8). It acts as a middle layer between js engine and OS. Node is async because of libuv.
+    - Nodejs is Asynchronous I/O (Non Blocking I/O) because of libuv. It is called non-blocking i/o because it is not blocking the main thread run by V8 JS Engine.
+
+7 . ## sync, async, setTimeoutZero - code
+    - 
