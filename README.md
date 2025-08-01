@@ -38,5 +38,15 @@
     - libuv talks to OS onbehalf of JS engine(v8). It acts as a middle layer between js engine and OS. Node is async because of libuv.
     - Nodejs is Asynchronous I/O (Non Blocking I/O) because of libuv. It is called non-blocking i/o because it is not blocking the main thread run by V8 JS Engine.
 
-7 . ## sync, async, setTimeoutZero - code
-    - 
+7. ## sync, async, setTimeoutZero - code
+
+8. ## [Deep dive into v8 JS Engine](https://v8.dev/)
+    - 1. Lexical Analysis(Tokenization). Code -> Tokens
+    - 2. Syntax Analysis(Parsing). Tokens are converted into Abstract Syntax Tree(AST).
+    - Syntax error : when the code can't generate a AST we can say that the error is a syntax error.
+    - Google's v8 engine interpreter is known as Ignition Interpreter.
+    - Compiler name is known as Turbofan Compiler.
+    - Hot code(code which runs more times) is given to Turbofan compiler by Ignition interpreter and it is compiled so next time it will run very quickly. This is known as optimization.
+    - Inline caching
+    - Copy Elision
+    - garbage collection
