@@ -49,4 +49,12 @@
     - Hot code(code which runs more times) is given to Turbofan compiler by Ignition interpreter and it is compiled so next time it will run very quickly. This is known as optimization.
     - Inline caching
     - Copy Elision
-    - garbage collection
+    - Orinico : garbage collection
+
+9. ## libuv & Event Loop
+    - Event Loop, Callback Queue, Thread pool
+    - 4 phases in Event Loop. (process.nextTick(), promise callbacks these two will be executed in loop before every phase). Each phase will have a separate queue.
+    - 1. timers phase (setTimeout, setInterval)
+    - 2. poll phase (I/O Callbacks, incoming connections, data, fs, crypto, http.get)
+    - 3. check phase (setImmediate)
+    - 4. close callbacks phase (socket.on("close"))
