@@ -1,0 +1,18 @@
+const fs = require("fs");
+
+setImmediate(() => console.log("setImmediate"));
+
+setTimeout(() => console.log("Timer expire"),0);
+
+Promise.resolve("Promise").then(() => console.log("promise"));
+
+fs.readFile("./File.txt", "utf8", () => {
+    console.log("File Reading CB");
+});
+
+process.nextTick(() => {
+    process.nextTick(() => console.log(" inner nextTick"));
+    console.log("nextTick");
+})
+
+console.log("last line of the file.");

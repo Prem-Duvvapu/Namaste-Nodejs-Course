@@ -58,3 +58,17 @@
     - 2. poll phase (I/O Callbacks, incoming connections, data, fs, crypto, http.get)
     - 3. check phase (setImmediate)
     - 4. close callbacks phase (socket.on("close"))
+    - Event loop waits at poll phase if the call stack is empty and callback queue is empty.
+    - Event loop in browser and this event loop is different.
+
+10. ## Thread pool in libuv
+    - Tick : one full cycle of event loop is known as Tick.
+    - Thread pool
+    - process.env.THREADPOOL_SIZE
+    - scalable I/O event Notification mechanism. epoll(Linux), kqueue(MacOS)
+
+11. ## Creating a Server
+    - Server(Hardware, Software)
+    - Client
+    - IP address
+    - Protocol
