@@ -72,3 +72,8 @@
     - Client
     - IP address
     - Protocol
+    - Port number
+    - Path
+    - sockets vs web sockets
+
+12. ## Databases - SQL & NoSQL
