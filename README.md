@@ -77,3 +77,23 @@
     - sockets vs web sockets
 
 12. ## Databases - SQL & NoSQL
+    - Types of databases
+    - MySQL, PostgreSQL
+    - DBMS
+    - MongoDB
+    - RDBMS(MySQL) vs NoSQL(MongoDB)
+
+13. ## Creating a database & mongodb
+    - [mongodb docs](https://mongodb.github.io/node-mongodb-native/6.18/)
+
+14. Introduction to Project
+    - DevTinder
+
+15. Microservices vs Monolith - How to Build a Project
+    - Waterfall Model (SDLC)
+    - 1. Requirements -> Product Manager + Designer
+    - 2. Design -> Senior Engineers / Engineering Manager
+    - 3. Development -> SDE-1, SDE-2
+    - 4. Testing -> SDET
+    - 5. Deployment -> DevOps Engineer
+    - 6. Maintainance (same lifecycle follows again)
