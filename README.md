@@ -86,10 +86,10 @@
 13. ## Creating a database & mongodb
     - [mongodb docs](https://mongodb.github.io/node-mongodb-native/6.18/)
 
-14. Introduction to Project
+14. ## Introduction to Project
     - DevTinder
 
-15. Microservices vs Monolith - How to Build a Project
+15. ## Microservices vs Monolith - How to Build a Project
     - Waterfall Model (SDLC)
     - 1. Requirements -> Product Manager + Designer
     - 2. Design -> Senior Engineers / Engineering Manager
@@ -97,3 +97,10 @@
     - 4. Testing -> SDET
     - 5. Deployment -> DevOps Engineer
     - 6. Maintainance (same lifecycle follows again)
+    - Monolith vs Microservices
+    - Dev Speed, Code Repo, Scalability, Deployment, Tech Stack,
+        Infra Cost, Complexity, Fault Isolation, Testing, Ownership,
+        Maintainence, Rewamps, Debugging, Dev Experience
+
+16. ## Features, HLD, LLD & Planning
+    - 
