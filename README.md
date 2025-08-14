@@ -103,4 +103,40 @@
         Maintainence, Rewamps, Debugging, Dev Experience
 
 16. ## Features, HLD, LLD & Planning
+    - 1. Requirements
+        - 1.1. Create an account
+        - 1.2. Login
+        - 1.3. Update your profile
+        - 1.4. Feed Page - explore
+        - 1.5. Send connection request
+        - 1.6. See our matches
+        - 1.7. See the requests we've sent/received
+    - 2. Tech planning
+        - 2.1. 2 microservices, 1 FE(react), 1 BE(nodeJS, MongoDB)
+        - 2.2. DB design, required APIs
+        - 2.3. User(firstname, lastname, email Id, password, age, gender,...)
+        - 2.4. ConnectionRequest(from userId, to userId, status)
+        - 2.5. HTTP methods (get, post, put, patch, delete)
+        - 2.6. REST APIs, CRUD operations
+            - POST /signup
+            - POST /login
+            - GET /profile
+            - POST /profile
+            - DELETE /profile
+            - POST /sendRequest
+            - POST /reviewRequest
+            - GET /requests
+            - GET /connections
+
+16. ## Creating our Express Server
+    - expressjs - open source framework of nodejs
+    - node_modules, package.json, package-lock.json
+    - nodemon package
+
+17. ## Routing and Request Handlers
+    - use(path)
+    - get(path), post(path)
+    - ?, +, (), *, regex in path
+
+18. ## Middlewares & Error Handlers
     - 
