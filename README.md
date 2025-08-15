@@ -134,9 +134,15 @@
     - nodemon package
 
 17. ## Routing and Request Handlers
-    - use(path)
-    - get(path), post(path)
+    - app.use(path)
+    - app.get(path), app.post(path)
     - ?, +, (), *, regex in path
 
 18. ## Middlewares & Error Handlers
-    - 
+    - next()
+    - What is a middleware? Why do we need it?
+    - How expressJS handles requests behind the scenes?
+    - app.use() vs app.all()
+    - (req, res), (req, res, next), (err, req, res, next)
+
+19. ## Database, Schema & Models | Mongoose
