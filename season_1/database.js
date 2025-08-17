@@ -8,7 +8,7 @@
 
 const { MongoClient } = require("mongodb")
 
-const url = "mongodb+srv://Cluster29216:OdhnJHBb6Ue9xdAp@namastenode.jljfzq5.mongodb.net/?retryWrites=true&w=majority&appName=NamasteNode"
+const url = "mongodb+srv://Cluster29216:OdhnJHBb6Ue9xdAp@namastenode.jljfzq5.mongodb.net/devTinder?retryWrites=true&w=majority&appName=NamasteNode"
 
 const client = new MongoClient(url);
 
