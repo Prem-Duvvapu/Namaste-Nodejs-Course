@@ -1,5 +1,5 @@
 // require("./xyz.js"); //one module into another
-import { x, calculateSum} from "./sum.js";
+import { x, calculateSum} from "../sum.js";
 var name = "Namaste NodeJS";
 
 // console.log(global);

@@ -146,3 +146,9 @@
     - (req, res), (req, res, next), (err, req, res, next)
 
 19. ## Database, Schema & Models | Mongoose
+    1. mongoose package
+    2. first connect to database, then start listening
+    3. Mongoose User Schema, User Model
+
+20. ## Diving into the APIs
+    1. diff b/w json object and js object
