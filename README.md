@@ -152,3 +152,4 @@
 
 20. ## Diving into the APIs
     1. diff b/w json object and js object
+    2. Model.find({}), Model.findOne({ attribute: value}), Model.find({attribute: value})
