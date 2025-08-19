@@ -1,24 +1,51 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 const userSchema = new mongoose.Schema({
     firstName: {
-        type: String
+        type: String,
+        required: true,
+        minLength: 4,
+        maxLength: 50
     },
     lastName: {
         type: String
     },
     emailId: {
-        type: String
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+        trim: true,
+        validate(value) {
+            if (!validator.isEmail(value)) {
+                throw new Error("Invalid email format: " + value);
+            }
+        }
     },
     password: {
         type: String
     },
     age: {
-        type: Number
+        type: Number,
+        min: 18
     },
     gender: {
         type: String
+    },
+    photoUrl: {
+        type: String,
+    },
+    about: {
+        type: String,
+        default: "This is a default about text."
+    },
+    skills: {
+        type: [String]
     }
+},
+{
+    timestamps: true
 });
 
 const User = mongoose.model("User", userSchema);

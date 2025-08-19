@@ -152,3 +152,10 @@
 
 20. ## Diving into the APIs
     1. diff b/w json object and js object
+    2. Model.find({}), Model.findOne({ attribute: value}), Model.find({attribute: value}), Model.findByIdAndDelete(id), Model.findByIdAndUpdated(id, newData)
+    3. Explore options
+
+21. ## Data Sanitization & Schema Validations
+    - required, default, unique, lowercase, trim, minLength, maxLength, validate, runValidators option, timestamps
+    - validator package
+    - NEVER TRUST THE req.body
