@@ -1,25 +1,65 @@
 const express = require("express");
 const connectDB = require("./config/database");
-const app = express();
 const User = require("./models/user");
+const { validateSignUpData } = require("./utils/validate");
+const bcrypt = require("bcrypt");
+const validator = require("validator");
+
+const app = express();
 
 // middleware to parse JSON request body
 app.use(express.json());
 
 // POST /signup - create user
 app.post("/signup", async (req, res) => {
-    const userObj = req.body;
-
     try {
-        // Creating a new instance of the User model
-        const user = new User(userObj);
-        await user.save();
-    } catch (err) {
-        res.status(400).send("Error saving the user: "+err.message);
-    }
-    
+        // validate the data
+        validateSignUpData(req);
 
-    res.send("User added successfully!");
+        const { firstName, lastName, emailId, password } = req.body;
+
+        // encrypt the password
+        const passwordHash = await bcrypt.hash(password, 10);
+
+        // Creating a new instance of the User model
+        const user = new User({
+            firstName,
+            lastName,
+            emailId,
+            password: passwordHash,
+        });
+        await user.save();
+
+        res.send("User added successfully!");
+    } catch (err) {
+        res.status(400).send("ERROR : "+err.message);
+    }
+});
+
+// POST /login - user login
+app.post("/login", async (req, res) => {
+    try {
+        const { emailId, password } = req.body;
+
+        if (!validator.isEmail(emailId)) {
+            throw new Error("Invalid email format!");
+        }
+
+        const user = await User.findOne({ emailId: emailId });
+        if (!user) {
+            throw new Error("Invalid credentails!");
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+
+        if (isPasswordValid) {
+            res.send("Login Successful!");
+        } else {
+            throw new Error("Invalid credentails!");
+        }
+    } catch (err) {
+        res.status(400).send("ERROR : " + err.message);
+    }
 });
 
 // GET /user - get user by emailId
