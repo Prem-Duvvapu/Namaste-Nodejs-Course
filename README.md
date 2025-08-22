@@ -159,3 +159,15 @@
     - required, default, unique, lowercase, trim, minLength, maxLength, validate, runValidators option, timestamps
     - validator package
     - NEVER TRUST THE req.body
+
+22. ## Encrypting Passwords
+    - Always create helper functions
+    - validate signUp data
+    - encrypt password using bcrypt package
+    - send only required fields to database
+
+23. ## Authentication, JWT & Cookies
+    - cookie-parser (package)
+    - cookies
+    - JWT (header, payload, signature)
+    - jsonwebtoken (package)
