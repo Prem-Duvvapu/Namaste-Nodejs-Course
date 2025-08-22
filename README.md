@@ -165,3 +165,9 @@
     - validate signUp data
     - encrypt password using bcrypt package
     - send only required fields to database
+
+23. ## Authentication, JWT & Cookies
+    - cookie-parser (package)
+    - cookies
+    - JWT (header, payload, signature)
+    - jsonwebtoken (package)
