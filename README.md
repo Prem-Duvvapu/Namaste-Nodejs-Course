@@ -171,3 +171,13 @@
     - cookies
     - JWT (header, payload, signature)
     - jsonwebtoken (package)
+    - auth middleware
+    - expiresIn (jwt)
+    - expires (cookie)
+    - this keyword doesn't work in arrow functions.
+    - schema methods
+
+24. ## Diving into the APIs and express Router
+    - express.Router()
+    - create a list of APIs(apiList.md)
+    - Group multiple routes nder respective routers

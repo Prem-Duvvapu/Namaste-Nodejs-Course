@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const validator = require("validator");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+const { userAuth } = require("./middlewares/auth");
 
 const app = express();
 
@@ -53,15 +54,17 @@ app.post("/login", async (req, res) => {
             throw new Error("Invalid credentails!");
         }
 
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+        const isPasswordValid = await user.validatePassword(password);
 
         if (isPasswordValid) {
             // Create a JWT Token
-            const token = await jwt.sign({ _id: user._id}, "devTender@123SECRET");
-            console.log(token);
+            const token = await user.getJWT();
+            // console.log(token);
 
             // Add the token to cookie
-            res.cookie("token",token);
+            res.cookie("token",token, {
+                expires: new Date(Date.now() + 8 * 3600000),
+            });
 
             res.send("Login Successful!");
         } else {
@@ -72,26 +75,9 @@ app.post("/login", async (req, res) => {
     }
 });
 
-app.get("/profile", async (req, res) => {
+app.get("/profile", userAuth, async (req, res) => {
     try {
-        const cookies = req.cookies;
-        const { token } = cookies;
-
-        if (!token) {
-            throw new Error("Invalid token!");
-        }
-
-        // Validate the token
-        const decodeMsg = await jwt.verify(token, "devTender@123SECRET");
-        // console.log(decodeMsg);
-        // console.log(cookies);
-
-        const { _id } = decodeMsg;
-        const user = await User.findById(_id);
-
-        if (!user) {
-            throw new Error("User does not exist");
-        }
+        const user = req.user;
 
         res.send(user);
     } catch (err) {
@@ -170,6 +156,16 @@ app.patch("/user/:userId", async (req, res) => {
         res.status(400).send("Update failed: "+ err.message);
     }
 });
+
+// Send connection request
+app.post("/sendConnectionRequest", userAuth, (req, res) => {
+    const user = req.user;
+
+    console.log(user.firstName + " sending a connection request");
+
+    res.send(user.firstName + " sent the connection request");
+});
+
 
 connectDB()
 .then(() => {
