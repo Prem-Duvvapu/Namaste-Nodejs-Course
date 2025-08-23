@@ -171,3 +171,7 @@
     - cookies
     - JWT (header, payload, signature)
     - jsonwebtoken (package)
+    - auth middleware
+    - expiresIn (jwt)
+    - expires (cookie)
+    - this keyword doesn't work in arrow functions.
