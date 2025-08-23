@@ -54,13 +54,11 @@ app.post("/login", async (req, res) => {
             throw new Error("Invalid credentails!");
         }
 
-        const isPasswordValid = await bcrypt.compare(password, user.password);
+        const isPasswordValid = await user.validatePassword(password);
 
         if (isPasswordValid) {
             // Create a JWT Token
-            const token = await jwt.sign({ _id: user._id}, "devTender@123SECRET", {
-                expiresIn: "1d",
-            });
+            const token = await user.getJWT();
             // console.log(token);
 
             // Add the token to cookie
